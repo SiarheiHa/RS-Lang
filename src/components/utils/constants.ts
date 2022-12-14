@@ -18,3 +18,6 @@ export const GAMES_DATA_TEXT: string[] = ['новые слова', 'правил
 
 // Forms validation
 export const EMAIL_REGEX: RegExp = /^[A-Za-z0-9_!#$%&'*+\\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
+
+export const ALERT_TEXT = `The first loading of application pages may take several minutes (free server limitation). Please wait and everything will work.
+Первоначальная загрузка страниц приложения может занять несколько минут (ограничение в работе бесплатного сервера). Пожалуйста, подождите и все заработает.`;

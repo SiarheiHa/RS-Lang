@@ -6,7 +6,7 @@ import { LoginForm } from '../forms/LoginForm';
 import { RegisterForm } from '../forms/RegisterForm';
 import {
   REGISTER_BTN, LOGIN_BTN, LEVELS_OF_TEXTBOOK, WORDS_PER_PAGE,
-  REFRESHTOKEN_LIFETIME_IN_HOURS, TOKEN_LIFETIME_IN_HOURS,
+  REFRESHTOKEN_LIFETIME_IN_HOURS, TOKEN_LIFETIME_IN_HOURS, ALERT_TEXT,
 } from '../utils/constants';
 import { UserUI } from '../user/UserUI';
 import { Sprint } from '../sprint/Sprint';
@@ -91,6 +91,7 @@ export class Controller {
   }
 
   public async initApp() {
+    this.pingServer();
     this.menu.initBurgerMenu();
     this.textBook.listenLevels(this.handleTextBoookPageUpdate.bind(this));
     this.textBook.listenPagination(this.handleTextBoookPageUpdate.bind(this));
@@ -237,5 +238,11 @@ export class Controller {
   public initAudioCallfromBook() {
     const game = new AudioCall();
     game.start({ group: this.textBook.currentLevel, page: this.textBook.currentPage });
+  }
+
+  pingServer() {
+    this.api.getWords();
+    // eslint-disable-next-line no-alert
+    alert(ALERT_TEXT);
   }
 }
